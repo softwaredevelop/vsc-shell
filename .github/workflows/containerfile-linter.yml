@@ -40,7 +40,7 @@ jobs:
       - name: Hadolint
         uses: hadolint/hadolint-action@v2.1.0
         with:
-          dockerfile: .devcontainer/Containerfile.ubuntu
+          dockerfile: .devcontainer/Dockerfile
 
   scan:
     name: Scan config files for vulnerabilities
@@ -59,5 +59,4 @@ jobs:
         run: |
           trivy config \
           --severity CRITICAL,HIGH \
-          --file-patterns "dockerfile:Containerfile" \
           /volume

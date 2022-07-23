@@ -13,29 +13,33 @@
 		}
 	},
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"shellformat.path": "/usr/local/bin/shfmt",
-		"files.associations": {
-			"*.sh": "shellscript",
-			"*.bash": "shellscript"
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+			"vscode": {
+				"settings": {
+					"shellformat.path": "/usr/local/bin/shfmt",
+					"files.associations": {
+						"*.sh": "shellscript",
+						"*.bash": "shellscript"
+					},
+					"[shellscript]": {
+						"editor.defaultFormatter": "foxundermoon.shell-format",
+						"editor.formatOnSave": true,
+						"editor.formatOnPaste": false
+					},
+					"shellformat.flag": "-s -i 2 -ci -sr"
+				},
+				"extensions": [
+					"editorconfig.editorconfig",
+					"foxundermoon.shell-format",
+					"remisa.shellman",
+					"rogalmic.bash-debug",
+					"timonwong.shellcheck"
+				]
+				// "devPort": {}
+			}
 		},
-		"[shellscript]": {
-			"editor.defaultFormatter": "foxundermoon.shell-format",
-			"editor.formatOnSave": true,
-			"editor.formatOnPaste": false
-		},
-		"shellformat.flag": "-s -i 2 -ci -sr"
-	},
-
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"editorconfig.editorconfig",
-		"foxundermoon.shell-format",
-		"remisa.shellman",
-		"rogalmic.bash-debug",
-		"timonwong.shellcheck"
-	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
